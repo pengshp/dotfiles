@@ -1,0 +1,114 @@
+" ~/.vim/vimrc
+"       _
+"__   _(_)_ __ ___  _ __ ___
+"\ \ / / | '_ ` _ \| '__/ __|
+" \ V /| | | | | | | | | (__
+"  \_/ |_|_| |_| |_|_|  \___|
+"
+
+
+set clipboard=unnamedplus
+set bg=light
+
+set number relativenumber
+
+set showmode
+set showcmd
+
+set mouse=a
+set fileformat=unix
+set encoding=utf-8
+
+filetype indent on
+filetype plugin on
+
+syntax on
+
+set autoindent
+set nocompatible
+
+set tabstop=4
+set expandtab " Use spaces instead of tabs.
+
+set cursorline
+set wrap
+set wildmenu
+" Enable autocompletion
+set wildmode=longest,list,full
+
+set splitright
+
+" leader \ timeout
+set hidden
+set timeoutlen=2000
+
+" Search
+set hlsearch
+set incsearch
+exec "nohlsearch"
+set ignorecase
+set smartcase
+noremap = nzz
+noremap - Nzz
+
+set noerrorbells
+
+let mapleader = " "
+
+" Replace all is alais to S
+nnoremap S :%s///g <Left><Left>
+
+" Automatically deletes all trailing whitespace and newlines
+" at end of file on save. & reset cursor position
+ 	autocmd BufWritePre * let currPos = getpos(".")
+	autocmd BufWritePre * %s/\s\+$//e
+	autocmd BufWritePre * %s/\n\+\%$//e
+	autocmd BufWritePre *.[ch] %s/\%$/\r/e
+  	autocmd BufWritePre * cal cursor(currPos[1], currPos[2])
+
+"============================================================
+" ===
+" ===vim-plug
+" ===
+call plug#begin('~/.vim/plugged')
+
+Plug 'mcchrish/nnn.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'jiangmiao/auto-pairs'
+"Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'connorholyday/vim-snazzy'
+call plug#end()
+
+" https://github.com/vim-airline/vim-airline-themes
+let g:airline_theme='base16_dracula'
+
+" vim theme
+"
+autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE " transparent bg
+colorscheme snazzy
+let g:SnazzyTransparent = 1
+
+
+" ===
+" === nnn.vim
+" ===
+let $NNN_TRASH=1
+" Disable default mappings
+let g:nnn#set_default_mappings = 0
+
+" Set custom mappings
+nnoremap <silent> <leader>nn :NnnPicker<CR>
+
+" Start n³ in the current file's directory
+nnoremap <leader>n :NnnPicker %:p:h<CR>
+
+" Opens the n³ window in a split
+let g:nnn#layout = 'new' " or vnew, tabnew etc.
+
+" Or pass a dictionary with window size
+let g:nnn#layout = { 'left': '~15%' } " or right, up, down
+
+
+"" NERDTree
+nmap <leader>t :NERDTree<cr>

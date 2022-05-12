@@ -1,0 +1,43 @@
+configuration {
+	modi: "drun,emoji,filebrowser,ssh,combi";
+    combi-modi: "drun,run,emoji,ssh";
+	font: "MiSans 16";
+/*	location: 0;*/
+/*	yoffset: 0;*/
+/*	xoffset: 0;*/
+/*	fixed-num-lines: true;*/
+	show-icons: true;
+	terminal: "alacritty";
+	ssh-client: "ssh";
+/*	ssh-command: "{terminal} -e {ssh-client} {host} [-p {port}]";*/
+/*	run-command: "{cmd}";*/
+/*	run-list-command: "";*/
+/*	run-shell-command: "{terminal} -e {cmd}";*/
+	icon-theme: "Tela-circle-purple-dark";
+	drun-match-fields: "name,generic,exec,keywords";
+    drun-show-actions: false;
+    drun-url-launcher: "xdg-open";
+	case-sensitive: false;
+	display-run: "";
+	display-ssh: "";
+	display-drun: "";
+	display-combi: "";
+/*	display-keys: ;*/
+	display-filebrowser: "";
+	display-emoji: "";
+	kb-primary-paste: "Control+V,Shift+Insert";
+	kb-screenshot: "Alt+S";
+    timeout {
+        action: "kb-cancel";
+        delay:  0;
+    }
+    filebrowser {
+        directories-first: true;
+        sorting-method:    "name";
+    }
+    icon {
+      theme: "Tela-circle-purple-dark";
+    }
+}
+
+@theme "themes/nord"

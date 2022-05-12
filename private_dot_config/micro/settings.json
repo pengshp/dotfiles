@@ -1,0 +1,13 @@
+{
+    "autosu": true,
+    "basename": true,
+    "diffgutter": true,
+    "ft:yaml": {
+        "tabsize": 2
+    },
+    "keepautoindent": true,
+    "mkparents": true,
+    "paste": true,
+    "rmtrailingws": true,
+    "tabstospaces": true
+}

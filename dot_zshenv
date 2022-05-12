@@ -1,0 +1,36 @@
+# ~/.zshenv
+#           _
+#   _______| |__   ___ _ ____   __
+#  |_  / __| '_ \ / _ \ '_ \ \ / /
+# _ / /\__ \ | | |  __/ | | \ V /
+#(_)___|___/_| |_|\___|_| |_|\_/
+#
+#
+
+export EDITOR=/usr/bin/vim
+export TLDR_OS=linux
+export CLICOLOR=1
+export TERM=xterm-256color
+export VISUAL=vim
+
+#bat https://github.com/sharkdp/bat
+#https://ttys3.dev/post/bat-a-cat-clone-with-wings/
+export BAT_STYLE=plain
+export BAT_THEME="TwoDark"
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export MANROFFOPT="-c"
+
+
+## nnn
+#https://www.bilibili.com/video/BV1Tz4y1y72r
+
+export NNN_USE_EDITOR=1
+export NNN_OPENER=nuke
+export NNN_FIFO=/tmp/nnn.fifo
+export NNN_SEL='/tmp/.sel'
+export NNN_BMS='h:~;d:~/Download;c:~/.config'
+export NNN_PLUG='p:preview-tui;i:imgview'
+
+## pnpm
+export PNPM_HOME="~/.local/share/pnpm"
+export PATH="$PNPM_HOME:$PATH"

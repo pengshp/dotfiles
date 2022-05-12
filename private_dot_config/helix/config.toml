@@ -1,0 +1,30 @@
+#theme = "onedark"
+theme = "gruvbox"
+
+[editor]
+line-number = "relative"
+mouse = true
+middle-click-paste= true
+scroll-lines = 3
+auto-completion = true
+completion-trigger-len = 2
+auto-info = true
+true-color = true
+
+
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "bar"
+
+[editor.file-picker]
+hidden = true
+ignore = true
+parents = true
+
+
+
+[editor.search]
+smart-case = true
+wrap-around = true

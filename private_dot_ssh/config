@@ -1,0 +1,66 @@
+Host *
+	StrictHostKeyChecking no
+    UserKnownHostsFile=/dev/null
+    ForwardAgent yes
+    ServerAliveInterval 10
+    ServerAliveCountMax 10000
+    TCPKeepAlive no
+    ControlMaster auto
+    ControlPath ~/.ssh/session/%h-%p-%r
+    ControlPersist 12h
+
+
+Host esxi-arch
+    hostname 172.16.10.18
+    user xdl
+    port 22
+    identityfile ~/.ssh/id_rsa
+
+    # k8s cluster kvm
+Host k8s-master
+    hostname 10.10.8.10
+    user xdl
+    port 22
+    identityfile ~/.ssh/id_rsa
+Host k8s-node1
+    hostname 10.10.8.11
+    user xdl
+    port 22
+    identityfile ~/.ssh/id_rsa
+Host k8s-node2
+    hostname 10.10.8.12
+    user xdl
+    port 22
+    identityfile ~/.ssh/id_rsa
+
+Host rocky
+    hostname 172.16.10.80
+    user xdl
+    port 22
+    identityfile ~/.ssh/id_rsa
+    identitiesonly yes
+    forwardagent yes
+
+Host fedora
+    hostname 172.16.10.15
+    user neal
+    port 22
+    identityfile ~/.ssh/id_rsa
+    identitiesonly yes
+    forwardagent yes
+
+Host centos
+    hostname 172.16.10.7
+    user root
+    port 22
+    identityfile ~/.ssh/id_rsa
+
+Host file
+    hostname 172.16.10.8
+    user xdl
+    identityfile ~/.ssh/id_rsa
+
+Host github.com
+    Hostname ssh.github.com
+    Port 443
+    identityfile ~/.ssh/id_rsa
