@@ -13,18 +13,18 @@ configuration {
 /*	run-command: "{cmd}";*/
 /*	run-list-command: "";*/
 /*	run-shell-command: "{terminal} -e {cmd}";*/
-	icon-theme: "Tela-circle-purple-dark";
+	icon-theme: "Tela-circle-dark";
 	drun-match-fields: "name,generic,exec,keywords";
     drun-show-actions: false;
     drun-url-launcher: "xdg-open";
 	case-sensitive: false;
-	display-run: "";
-	display-ssh: "";
-	display-drun: "";
-	display-combi: "";
+	display-run: " ";
+	display-ssh: " ";
+	display-drun: " ";
+	display-combi: " ";
 /*	display-keys: ;*/
-	display-filebrowser: "";
-	display-emoji: "";
+	display-filebrowser: " ";
+	display-emoji: " ";
 	kb-primary-paste: "Control+V,Shift+Insert";
 	kb-screenshot: "Alt+S";
     timeout {
@@ -36,7 +36,7 @@ configuration {
         sorting-method:    "name";
     }
     icon {
-      theme: "Tela-circle-purple-dark";
+      theme: "Tela-circle-dark";
     }
 }
 

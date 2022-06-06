@@ -1,5 +1,5 @@
 #theme = "onedark"
-theme = "gruvbox"
+theme = "nord"
 
 [editor]
 line-number = "relative"
@@ -12,6 +12,8 @@ auto-info = true
 true-color = true
 
 
+[editor.lsp]
+display-messages = true
 
 [editor.cursor-shape]
 insert = "bar"
@@ -22,7 +24,7 @@ select = "bar"
 hidden = true
 ignore = true
 parents = true
-
+git-ignore = true
 
 
 [editor.search]

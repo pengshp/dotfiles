@@ -1,6 +1,7 @@
 {
     "autosu": true,
     "basename": true,
+    "colorscheme": "catppuccin-mocha",
     "diffgutter": true,
     "ft:yaml": {
         "tabsize": 2
@@ -9,5 +10,7 @@
     "mkparents": true,
     "paste": true,
     "rmtrailingws": true,
+    "savecursor": true,
+    "tabmovement": true,
     "tabstospaces": true
 }
