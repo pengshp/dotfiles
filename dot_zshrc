@@ -1,22 +1,13 @@
-autoload -U run-help
-autoload run-help-git
+# autoload -U run-help
+#autoload run-help-git
 # Enable colors and change prompt:
-autoload -U colors && colors	# Load colors
+#autoload -U colors && colors	# Load colors
 
 setopt autocd		# Automatically cd into typed directory.
 stty stop undef		# Disable ctrl-s to freeze terminal.
 setopt interactive_comments
 
 
-
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-#if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-#  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-#fi
-#typeset -g POWERLEVEL10K_INSTANT_PROMPT=quiet
 #  ~/.zshrc
 #           _
 #   _______| |__  _ __ ___
@@ -43,6 +34,7 @@ export HISTORY_IGNORE="(ls|cd|pwd|exit|sudo reboot|history|cd -|cd ..)"
 
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/.local/bin:$PATH
+export PATH=$PATH:/opt/xtensa-esp32-elf/bin
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -51,7 +43,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="powerlevel10k/powerlevel10k" # set by `omz`
+ZSH_THEME="" # set by `omz`
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -114,11 +106,10 @@ HIST_STAMPS="yyyy-mm-dd"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git tmux systemd man archlinux sudo transfer)
+plugins=(git tmux systemd man archlinux transfer)
 
 autoload -U compinit && compinit
 source $ZSH/oh-my-zsh.sh
-
 # User configuration
 
 export MANPATH="/usr/local/man:$MANPATH"
@@ -165,6 +156,7 @@ alias vi=nvim
 
 alias wt="curl 'wttr.in/Foshan?0F'"
 
+alias cp='xcp'
 
 ## fzf and pacman
 alias pr="pacman -Qq | fzf --multi --preview 'pacman -Qi {1}' | xargs -ro sudo pacman -Rns"
@@ -218,5 +210,9 @@ eval "$(navi widget zsh)"
 # zoxido
 eval "$(zoxide init zsh)"
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# Startship
+eval "$(starship init zsh)"
+
+# catppuccin theme
+source ~/.config/zsh/catppuccin_macchiato-zsh-syntax-highlighting.zsh
+

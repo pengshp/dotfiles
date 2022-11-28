@@ -9,7 +9,8 @@
 # All imports must either be absolute paths starting with `/`, or paths relative
 # to the user's home directory starting with `~/`.
 import:
-  - ~/.config/alacritty/nordfox.yml
+  - ~/.config/alacritty/themes/catppuccin-macchiato.yml
+#  - ~/.config/alacritty/nordfox.yml
 #  - /path/to/alacritty.yml
 #  - ~/.config/alacritty/gruvbox_dark.yaml
 #  - ~/.config/alacritty/nord.yml
@@ -69,7 +70,7 @@ window:
   #
   # Window opacity as a floating point number from `0.0` to `1.0`.
   # The value `0.0` is completely transparent and `1.0` is opaque.
-  opacity: 0.85
+  opacity: 0.90
 
   # Startup Mode (changes require restart)
   #
@@ -99,7 +100,7 @@ window:
   #
   # Override the variant of the GTK theme. Commonly supported values are `dark`
   # and `light`. Set this to `None` to use the default theme variant.
-  gtk_theme_variant: dark
+  decorations_theme_variant: dark
 
 scrolling:
   # Maximum number of lines in the scrollback buffer.
@@ -119,10 +120,10 @@ font:
     #   - (macOS) Menlo
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
-    family: 'InconsolataLGC Nerd font Mono'
+    family: 'CaskaydiaCove Nerd font Mono'
 
     # The `style` can be specified to pick a specific face.
-    style: Medium
+    style: Regular
 
   # Bold font face
   bold:
@@ -130,7 +131,7 @@ font:
     #
     # If the bold family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: 'InconsolataLGC Nerd font Mono'
+    family: 'CaskaydiaCove Nerd font Mono'
 
     # The `style` can be specified to pick a specific face.
     style: Bold
@@ -141,10 +142,10 @@ font:
     #
     # If the italic family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: 'InconsolataLGC Nerd font Mono'
+    family: 'CaskaydiaCove Nerd font Mono'
 
     # The `style` can be specified to pick a specific face.
-    style: Medium Italic
+    style: Italic
 
   # Bold italic font face
   bold_italic:
@@ -152,7 +153,7 @@ font:
     #
     # If the bold italic family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: 'InconsolataLGC Nerd font Mono'
+    family: 'CaskaydiaCove Nerd font Mono'
 
     # The `style` can be specified to pick a specific face.
     style: Bold Italic
@@ -378,7 +379,7 @@ draw_bold_text_with_bright_colors: true
 selection:
   # This string contains all characters that are used as separators for
   # "semantic words" in Alacritty.
-  #semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
+  semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
 
   # When set to `true`, selected text will be copied to the primary clipboard.
   save_to_clipboard: true
@@ -392,7 +393,7 @@ cursor:
     #   - ▇ Block
     #   - _ Underline
     #   - | Beam
-    shape: Block
+    shape: Beam
 
     # Cursor blinking state
     #
@@ -413,6 +414,12 @@ cursor:
 
   # Cursor blinking interval in milliseconds.
   blink_interval: 750
+  
+  # Time after which cursor stops blinking, in seconds.
+  #
+  # Specifying '0' will disable timeout for blinking.
+  blink_timeout: 5
+
 
   # If this is `true`, the cursor will be rendered as a hollow box when the
   # window is not focused.
@@ -439,6 +446,8 @@ shell:
   program: /usr/bin/zsh
   args:
     - --login
+    - -c
+    - "tmux new-session -A -D -s main"
 
 # Startup directory
 #
@@ -450,7 +459,7 @@ shell:
 #alt_send_esc: true
 
 # Offer IPC using `alacritty msg` (unix only)
-#ipc_socket: true
+ipc_socket: true
 
 mouse:
   # Click settings
@@ -757,7 +766,39 @@ key_bindings:
   - { key: PageDown,  mods: Shift,   mode: ~Alt,        action: ScrollPageDown }
   #- { key: Home,      mods: Shift,   mode: ~Alt,        action: ScrollToTop,   }
   #- { key: End,       mods: Shift,   mode: ~Alt,        action: ScrollToBottom }
-
+  
+  # tmux popup
+  - { key: J, mods: Alt, chars: "\x02\x54" }
+  # while inside tmux, you can hit cmd+t to create a new window! 
+  - { key: T, mods: Alt, chars: "\x02\x63" }
+    # Rename the current tmux window
+  - { key: Comma, mods: Alt, chars: "\x02\x2c" }
+  # Select a new tmux session for the attached client interactively
+  - { key: K, mods: Alt, chars: "\x02\x73" }
+  # Select window 1-9
+  - { key: Key1, mods: Alt, chars: "\x02\x31" }
+  - { key: Key2, mods: Alt, chars: "\x02\x32" }
+  - { key: Key3, mods: Alt, chars: "\x02\x33" }
+  - { key: Key4, mods: Alt, chars: "\x02\x34" }
+  - { key: Key5, mods: Alt, chars: "\x02\x35" }
+  - { key: Key6, mods: Alt, chars: "\x02\x36" }
+  - { key: Key7, mods: Alt, chars: "\x02\x37" }
+  - { key: Key8, mods: Alt, chars: "\x02\x38" }
+  - { key: Key9, mods: Alt, chars: "\x02\x39" }
+  
+    # Break the current tmux pane out of the tmux window
+  - { key: T, mods: Alt|Shift, chars: "\x02\x21" }
+  # Kill the current tmux pane (and window if last pane)
+  - { key: C, mods: Alt, chars: "\x02\x78" }
+  # Toggle the zoom state of the current tmux pane
+  - { key: Z, mods: Alt, chars: "\x02\x7a" }
+    # Switch to last tmux session
+  - { key: L, mods: Alt, chars: "\x02\x4c" }
+    # Detach the current tmux client
+  - { key: Q, mods: Alt, chars: "\x02\x64" }
+  
+  
+  
   # Vi Mode
   #- { key: Space,  mods: Shift|Control, mode: ~Search,    action: ToggleViMode            }
   #- { key: Space,  mods: Shift|Control, mode: Vi|~Search, action: ScrollToBottom          }
@@ -838,27 +879,6 @@ key_bindings:
   #- { key: Return,   mods: Alt,           action: ToggleFullscreen }
   - { key: F11,   mods: None,           action: ToggleFullscreen }
 
-  # (macOS only)
-  #- { key: K,              mods: Command, mode: ~Vi|~Search, chars: "\x0c"                 }
-  #- { key: K,              mods: Command, mode: ~Vi|~Search, action: ClearHistory          }
-  #- { key: Key0,           mods: Command,                    action: ResetFontSize         }
-  #- { key: Equals,         mods: Command,                    action: IncreaseFontSize      }
-  #- { key: Plus,           mods: Command,                    action: IncreaseFontSize      }
-  #- { key: NumpadAdd,      mods: Command,                    action: IncreaseFontSize      }
-  #- { key: Minus,          mods: Command,                    action: DecreaseFontSize      }
-  #- { key: NumpadSubtract, mods: Command,                    action: DecreaseFontSize      }
-  #- { key: V,              mods: Command,                    action: Paste                 }
-  #- { key: C,              mods: Command,                    action: Copy                  }
-  #- { key: C,              mods: Command, mode: Vi|~Search,  action: ClearSelection        }
-  #- { key: H,              mods: Command,                    action: Hide                  }
-  #- { key: H,              mods: Command|Alt,                action: HideOtherApplications }
-  #- { key: M,              mods: Command,                    action: Minimize              }
-  #- { key: Q,              mods: Command,                    action: Quit                  }
-  #- { key: W,              mods: Command,                    action: Quit                  }
-  #- { key: N,              mods: Command,                    action: SpawnNewInstance      }
-  #- { key: F,              mods: Command|Control,            action: ToggleFullscreen      }
-  #- { key: F,              mods: Command, mode: ~Search,     action: SearchForward         }
-  #- { key: B,              mods: Command, mode: ~Search,     action: SearchBackward        }
 
 #debug:
   # Display the time it takes to redraw each frame.
