@@ -11,6 +11,8 @@ EnumerateGroupForwardKeys=
 EnumerateGroupBackwardKeys=
 # 激活输入法
 ActivateKeys=
+# 切换是否使用嵌入预编辑
+TogglePreedit=
 
 [Hotkey/TriggerKeys]
 0=Control+space
@@ -35,9 +37,6 @@ ActivateKeys=
 
 [Hotkey/NextCandidate]
 0=Tab
-
-[Hotkey/TogglePreedit]
-0=Control+Alt+P
 
 [Behavior]
 # 默认状态为激活
@@ -68,9 +67,7 @@ PreloadInputMethod=True
 [Behavior/DisabledAddons]
 0=chttrans
 1=fcitx4frontend
-2=ibusfrontend
-3=notifications
-4=pinyinhelper
-5=table
-6=xim
+2=notifications
+3=pinyinhelper
+4=table
 

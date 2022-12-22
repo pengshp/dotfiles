@@ -445,7 +445,7 @@ live_config_reload: true
 shell:
   program: /usr/bin/zsh
   args:
-    - --login
+    #    - --login
     - -c
     - "tmux new-session -A -D -s main"
 

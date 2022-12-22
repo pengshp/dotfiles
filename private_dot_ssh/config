@@ -1,13 +1,13 @@
 Host *
-	StrictHostKeyChecking no
-    UserKnownHostsFile=/dev/null
-    ForwardAgent yes
-    ServerAliveInterval 10
-    ServerAliveCountMax 10000
-    TCPKeepAlive no
-    ControlMaster auto
-    ControlPath ~/.ssh/session/%h-%p-%r
-    ControlPersist 12h
+ stricthostkeychecking no
+    userknownhostsfile = /dev/null
+    forwardagent yes
+    serveraliveinterval 10
+    serveralivecountmax 10000
+    tcpkeepalive no
+    controlmaster auto
+    controlpath ~/.ssh/session/%h-%p-%r
+    controlpersist 12h
 
 
 Host esxi-arch
@@ -20,12 +20,12 @@ Host nas
     hostname 172.16.10.100
     user xdl
     port 22
-	identityfile ~/.ssh/id_rsa
+ identityfile ~/.ssh/id_rsa
 Host awe
     hostname 192.168.122.109
     user xdl
     port 22
-	identityfile ~/.ssh/id_rsa
+ identityfile ~/.ssh/id_rsa
 
 # k8s cluster kvm
 Host k8s-master
@@ -66,18 +66,25 @@ Host centos
     port 22
     identityfile ~/.ssh/id_rsa
 
+Host freebsd
+    hostname 192.168.122.140
+    user root
+    port 22
+    identityfile ~/.ssh/id_rsa
+
 Host file
-    hostname 172.16.10.8
+    hostname 172.16.10.98
     user xdl
     identityfile ~/.ssh/id_rsa
 
 Host github.com
-    Hostname ssh.github.com
-    Port 443
+    hostname ssh.github.com
+    user git
+    port 443
     identityfile ~/.ssh/id_rsa
 
 Host gitea
-    Hostname git.esxi.lan
-    User git
-    Port 2022
+    hostname git.esxi.lan
+    user git
+    port 2022
     identityfile ~/.ssh/id_rsa

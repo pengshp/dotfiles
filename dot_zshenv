@@ -35,6 +35,9 @@ export NNN_PLUG='p:preview-tui;i:imgview;o:fzopen;j:autojump'
 export MICRO_TRUECOLOR=1
 #
 
+# ampy
+export AMPY_PORT=/dev/ttyACM0
+
 # fzf
 # Setting fd as the default source for fzf
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git --exclude .vscode-oss'

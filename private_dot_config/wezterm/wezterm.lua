@@ -124,8 +124,8 @@ return {
     bottom = 2,
   },
 
-  initial_cols = 96,
-  initial_rows = 32,
+  initial_cols = 86,
+  initial_rows = 28,
   colors = {
     tab_bar = {
       background = "#2e3440",

@@ -9,9 +9,11 @@ scroll-lines = 3
 auto-completion = true
 completion-trigger-len = 2
 auto-info = true
+auto-save = true
 true-color = true
 color-modes = true
-
+gutters = ["line-numbers","diff"]
+bufferline = "multiple"
 
 [editor.lsp]
 display-messages = true
@@ -23,12 +25,15 @@ select = "underline"
 
 [editor.indent-guides]
 render = true
+character = "┊"
 
 [editor.statusline]
 left = ["mode", "diagnostics"]
 center = ["file-name"]
+separator = "│"
 right = [
     "selections",
+    "spinner",
     "file-type",
     "file-encoding",
     "position-percentage",
@@ -47,5 +52,8 @@ smart-case = true
 wrap-around = true
 
 [keys.normal]
+"del" = "delete_selection"
+"C-c" = ":clipboard-yank"
+C-o = ":open ~/.config/helix/config.toml"
 X = "extend_line_above"
 D = "delete_char_backward"

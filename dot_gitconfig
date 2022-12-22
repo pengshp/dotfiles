@@ -1,5 +1,7 @@
 [http]
-    proxy = socks5://172.16.10.18:7891
+    proxy = socks5h://172.16.10.18:7891
+[https "https://github.com"]
+    proxy = socks5h://172.16.10.18:7891
 [user]
 	name = pengshp
 	email = pengshp3@outlook.com
